@@ -1,0 +1,35 @@
+﻿{
+    "comment":"Launcher endpoint overrides. Values here override defaults unless CLI flags are set.",
+    "use_production":false,
+    "sessions_host":"sessions.hytale.com",
+    "base_url":"https://sessions.hytale.com",
+    "emu_server_url":"https://127.0.0.1",
+    "redirect_domains":[
+        "sessions.hytale.com",
+        "account-data.hytale.com",
+        "api.hytale.com",
+        "cdn.hytale.com",
+        "telemetry.hytale.com",
+        "hytale.com",
+		"oauth.accounts.hytale.com",
+		"accounts.hytale.com",
+		"backend.accounts.hytale.com",
+		"account-data.hytale.com",
+		"sessions.hytale.com"
+    ],
+    "production_config":{
+        "sessions_host":"sessions.hytale.com",
+        "base_url":"https://sessions.hytale.com",
+        "redirect_domains":[
+            "sessions.hytale.com",
+            "account-data.hytale.com",
+            "api.hytale.com",
+            "cdn.hytale.com",
+            "telemetry.hytale.com",
+            "hytale.com"
+        ]
+    },
+    "extra_redirect_domains":[
+        
+    ]
+}

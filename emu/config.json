@@ -1,0 +1,46 @@
+﻿{
+    "mode":  2,
+    "comment_mode":  "1 = Passthrough (real server), 2 = Full Emulation (local)",
+    "server":  {
+                   "host":  "0.0.0.0",
+                   "https_port":  443,
+                   "domains":  [
+                                   "sessions.hytale.com",
+                                   "account-data.hytale.com",
+                                   "api.hytale.com",
+                                   "cdn.hytale.com",
+                                   "telemetry.hytale.com",
+                                   "hytale.com",
+                                   "oauth.accounts.hytale.com",
+                                   "accounts.hytale.com",
+                                   "backend.accounts.hytale.com",
+                                   "oauth.hytale.com"
+                               ]
+               },
+    "certs":  {
+                  "tls_cert":  "certs/server.crt",
+                  "tls_key":  "certs/server.key",
+                  "ed25519_private":  "certs/ed25519_private.pem",
+                  "ed25519_public":  "certs/ed25519_public.pem",
+                  "kid":  "ed25519-key-2024"
+              },
+    "passthrough":  {
+                        "comment":  "Mode 1 settings - forward to real server",
+                        "real_server":  "https://sessions.localhost.io",
+                        "real_ip":  "83.113.67.135"
+                    },
+    "emulation":  {
+                      "comment":  "Mode 2 settings - full local emulation",
+                      "issuer":  "https://sessions.hytale.com",
+                      "token_expiry_seconds":  86400,
+                      "session_scope":  "hytale:client",
+                      "client_version":  "HytaleClient/2026.01.28-87d03be09"
+                  },
+    "logging":  {
+                    "log_file":  "logs/emu_trace.log",
+                    "log_requests":  true,
+                    "log_responses":  true,
+                    "log_tokens":  true,
+                    "verbose":  true
+                }
+}
