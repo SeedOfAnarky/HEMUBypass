@@ -1006,7 +1006,10 @@ try {
     # Start-Process in Windows PowerShell joins string[] without quoting. Build a quoted command line
     # so paths like "C:\\...\\Version 2026.02.06-aa1b071c2" work reliably.
     $clientArgString = ($clientArgs | ForEach-Object { Escape-WinCmdArg $_ }) -join ' '
-    $proc = Start-Process -FilePath $ClientExe -ArgumentList $clientArgString -PassThru -WorkingDirectory $ClientDir
+    # HytaleClient.exe is a console-subsystem app (it prints --help / logs to stdout). On some systems,
+    # launching via ShellExecute (Start-Process default) causes it to exit immediately with code 0 and no UI.
+    # -NoNewWindow forces CreateProcess + attach to the current console, which reliably starts the actual client.
+    $proc = Start-Process -FilePath $ClientExe -ArgumentList $clientArgString -PassThru -WorkingDirectory $ClientDir -NoNewWindow
     
     Write-Log "" 'White' 'CLIENT'
     Write-Log "CLIENT STARTED! PID: $($proc.Id)" 'Green' 'CLIENT'
