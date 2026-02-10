@@ -1,5 +1,0 @@
-# Setup download link (first valid URL wins)
-# Accepts:
-#   - Pixeldrain share URL (https://pixeldrain.com/u/<id>)
-#   - Direct download URL to an archive (.7z/.zip)
-https://pixeldrain.com/u/KWoDM66y
